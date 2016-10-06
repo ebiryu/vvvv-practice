@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
-   <PATCH nodename="C:\Users\ebibi\work\vvvv\vvvv-practice\leapmotion-finger-test.v4p" scrollx="0" scrolly="720" systemname="leapmotion-finger-test" filename="C:\Users\ebibi\work\vvvv\vvvv-practice\leapmotion-finger-test.v4p" locked="1">
-   <BOUNDS type="Window" left="11590" top="5430" width="11640" height="9150">
+   <PATCH nodename="C:\Users\ebibi\work\vvvv\vvvv-practice\leapmotion-finger-test.v4p" scrollx="0" scrolly="720" systemname="leapmotion-finger-test" filename="C:\Users\ebibi\work\vvvv\vvvv-practice\leapmotion-finger-test.v4p" locked="0">
+   <BOUNDS type="Window" left="3528" top="3288" width="11640" height="9144">
    </BOUNDS>
    <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="1">
    <BOUNDS type="Node" left="3610" top="4330" width="100" height="100">
@@ -213,5 +213,33 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="24" srcpinname="Gestures" dstnodeid="26" dstpinname="Gesture List">
+   </LINK>
+   <NODE systemname="Leap (Devices)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.Devices.Leap.dll" nodename="Leap (Devices)" componentmode="Hidden" id="29">
+   <BOUNDS type="Node" left="4296" top="5928" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Hand PositionXYZ" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="S+H (Animation)" nodename="S+H (Animation)" componentmode="Hidden" id="28">
+   <BOUNDS type="Node" left="4280" top="6784" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Set" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="29" srcpinname="Hand PositionXYZ" dstnodeid="28" dstpinname="Input">
+   </LINK>
+   <NODE systemname="Change (Animation)" nodename="Change (Animation)" componentmode="Hidden" id="27">
+   <BOUNDS type="Node" left="4640" top="6360" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="OnChange" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="29" srcpinname="Hand PositionXYZ" dstnodeid="27" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="27" srcpinname="OnChange" dstnodeid="28" dstpinname="Set">
    </LINK>
    </PATCH>
